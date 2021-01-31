@@ -188,6 +188,7 @@ class StonksChart extends React.Component {
         display: "inline",
         padding: 0,
         fontFamily: "'Fira Sans', sans-serif",
+        margin: 50
       },
       title: {
         textAnchor: "start",

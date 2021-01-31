@@ -7,6 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Install [Docker](https://docs.docker.com/engine/install/)
 ### Install [Docker Compose](https://docs.docker.com/compose/install/)
 
+Claim API Key from [Alpha Advantage](https://www.alphavantage.co/support/#api-key) and set `API_KEY` in `backend/.env`
+
 ## To start application in browser with docker-compose
 
 ### From project directory

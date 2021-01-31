@@ -7,6 +7,8 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+const mongoInstance = 'mongodb://localhost/stonks' || 'mongo://btfd-mongo/stonks'
+
 app.use(cors());
 app.use(express.json());
 
@@ -15,7 +17,12 @@ app.use(express.json());
 
 // mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
 
-mongoose.connect('mongodb://btfd-mongo/stonks', {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
+mongoose.connect(mongoInstance, {
+	useNewUrlParser: true, 
+	useCreateIndex: true, 
+	useUnifiedTopology: true, 
+	useFindAndModify: false
+})
 
 const connection = mongoose.connection;
 connection.once('open', () => {

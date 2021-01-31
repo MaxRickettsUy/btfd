@@ -20,6 +20,12 @@ const holdingSchema = new Schema({
         required: true,
         unique: false,
         trim: true
+    },
+    price: {
+        type: String,
+        required: false,
+        unique: false,
+        trim: true
     }
 }, {
     timestamps: true

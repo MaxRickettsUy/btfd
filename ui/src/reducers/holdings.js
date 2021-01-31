@@ -1,5 +1,9 @@
-export default (state = {}, action) => {
+const holdingsReducer = (state = {}, action) => {
   switch(action.type) {
+    case 'ADD_HOLDING':
+      return {
+        ...state
+      }
     case 'GET_HOLDINGS':
     return {
       ...state,
@@ -10,6 +14,13 @@ export default (state = {}, action) => {
         ...state,
         holding: action.payload
       }
+    case 'GET_PRICES': 
+      return {
+        ...state,
+        prices: action.payload
+      }
     default: return state
   }
 }
+
+export default holdingsReducer;

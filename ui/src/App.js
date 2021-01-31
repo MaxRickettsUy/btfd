@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div style={{background: 'black'}}>
+    <div style={{background: 'black', overflowY: 'auto'}}>
       <StonksMenu />
       <StonksContainer />
     </div>
