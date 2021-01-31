@@ -1,7 +1,7 @@
-.eslintcache
-node_modules
-yarn-lock.json
-package-lock.json
+ui/.eslintcache
+ui/node_modules
+ui/yarn-lock.json
+ui/package-lock.json
 
 backend/node_modules
 backend/package-lock.json

@@ -15,7 +15,7 @@ app.use(express.json());
 
 // mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
 
-mongoose.connect('mongodb://localhost/stonks', {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
+mongoose.connect('mongodb://btfd-mongo/stonks', {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
 
 const connection = mongoose.connection;
 connection.once('open', () => {
