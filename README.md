@@ -1,3 +1,7 @@
+<p align="center">
+  <a alt="btfd" target="_blank"><img width=300 height=300 src="ui/public/btfd1.png"/></a>
+</p>
+
 # BTFD
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [React Electron](https://github.com/MaxRickettsUy/react-electron).
