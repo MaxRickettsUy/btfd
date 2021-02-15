@@ -2,7 +2,31 @@ import { Button, Icon, Menu, Table } from 'semantic-ui-react'
 import React from 'react'
 import StonksModal from './StonksModal'
 
+const needsUpdate = (holding) => {
+  const today = new Date().toISOString();
+  const t = new Date(today)
+
+  let year = t.getFullYear();
+  let month = t.getMonth()+1;
+  let dt = t.getDate();
+
+  const todayDate = (year+"-"+month+"-"+dt)
+
+  const updateAtDate = new Date(holding.updatedAt)
+
+  let uYear = updateAtDate.getFullYear();
+  let uMonth = updateAtDate.getMonth()+1;
+  let uDay = updateAtDate.getDate();
+
+  const lastUpdated = (uYear+"-"+uMonth+"-"+uDay)
+
+  return lastUpdated !== todayDate
+
+}
+
 const TableRow = (holding, prices, index, getPrices, updateHolding) => {
+  let holdingPriceNeedsUpdate = needsUpdate(holding)
+
   const ticker = holding.holdingName.toUpperCase()
 
   const getPricesProps = {
@@ -28,7 +52,7 @@ const TableRow = (holding, prices, index, getPrices, updateHolding) => {
           </Table.Cell>
           <Table.Cell>
             {
-              holding.price ? 
+              holding.price && !holdingPriceNeedsUpdate?
                 holding.price
               :
                 <Button onClick={()=>{getPrices(getPricesProps)}}>
@@ -52,7 +76,7 @@ const TableRow = (holding, prices, index, getPrices, updateHolding) => {
 const HoldingsTable = ({addHolding, holdings, prices, getPrices, updateHolding}) => {
   return (
     <React.Fragment>
-      <Table striped style={{height: '80vh'}}>
+      <Table striped style={{height: '80vh', overflowX: 'scroll'}}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Ticker</Table.HeaderCell>

@@ -2,8 +2,10 @@ import {connect} from 'react-redux'
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import HoldingsTable from '../components/HoldingsTable'
+import StonksBarChart from '../components/StonksBarChart'
 import StonksChart from '../components/StonksChart'
 import * as holdingsActions from '../actions/holdings'
+<StonksChart />
 
 class StonksContainer extends React.Component {
 
@@ -12,22 +14,28 @@ class StonksContainer extends React.Component {
   }
 
   render(){
+    const holdings = this.props.holdings || null
     return (
       <div style={{background: 'black', height: '100vh', margin: 10, overflowY: 'scroll', overflowX: 'hidden'}}>
         <Grid columns={2} divided>
           <Grid.Row>
-          <Grid.Column width={8}>
-              <StonksChart />
-          </Grid.Column>
-          <Grid.Column width={8}>
-              <HoldingsTable 
-                addHolding={this.props.addHolding} 
-                holdings={this.props.holdings}
-                prices={this.props.prices}
-                getPrices={this.props.getPrices}
-                updateHolding={this.props.updateHolding}
-              />
-          </Grid.Column>
+            <Grid.Column width={9}>
+              {
+                holdings ? 
+                  <StonksBarChart holdings={this.props.holdings}/>
+                  :
+                  null
+              }
+            </Grid.Column>
+            <Grid.Column width={7}>
+                <HoldingsTable 
+                  addHolding={this.props.addHolding} 
+                  holdings={this.props.holdings}
+                  prices={this.props.prices}
+                  getPrices={this.props.getPrices}
+                  updateHolding={this.props.updateHolding}
+                />
+            </Grid.Column>
           </Grid.Row>
         </Grid>
       </div>

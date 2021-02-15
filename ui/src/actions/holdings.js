@@ -2,12 +2,6 @@ import axios from 'axios'
 
 const server = 'http://localhost:5000'
 
-// const extractTickerNames = (data) => {
-//   const tickers = []
-//   data.forEach((value) => {tickers.push(value.holdingName.toUpperCase())})
-//   return tickers
-// }
-
 const normalizeTickerData = (tickerData) => {
   let data = tickerData.data['Time Series (Daily)']
   const lastDate = Object.keys(data)[0]
@@ -19,12 +13,17 @@ const normalizeTickerData = (tickerData) => {
   return lastData["4. close"]
 }
 
+const normalizeCryptoData = (cryptoData, ticker) => {
+  let data = cryptoData.data.data
+  let price = data[ticker].quote.USD.price
+  return price.toFixed(2)
+}
+
 export const getHoldings = () => {
   return (dispatch) => {
     return axios.get(`${server}/holdings/`).then(
       (success) => {
         dispatch(createGetSuccess('GET_HOLDINGS', success.data))
-        // dispatch(getPrices(tickers))
       }
     ).catch((error) => {
       throw(error)
@@ -44,11 +43,15 @@ export const addHolding = (values) => {
   }
 }
 
-export const getPrices = ({ticker, id, holding}) => {
+export const getPrices = ({id, ticker, holding}) => {
   return (dispatch) => {
-    return axios.get(`${server}/holdings/holdingPrices/` + ticker).then(
+    return axios.post(`${server}/holdings/holdingPrices/` + ticker, {"ticker": ticker, "isCrypto": holding.isCrypto}).then(
       (success) => {
-        holding.price = normalizeTickerData(success.data)
+        if(holding.isCrypto){
+          holding.price = normalizeCryptoData(success.data, ticker)
+        } else {
+          holding.price = normalizeTickerData(success.data)
+        }
         dispatch(updateHolding(id, holding))
       }
     ).catch((error) =>{
@@ -59,8 +62,6 @@ export const getPrices = ({ticker, id, holding}) => {
 
 export const updateHolding = (id, holding) => {
   return dispatch => {
-    console.log(id)
-    console.log(holding)
     return axios.put(`${server}/holdings/update/${id}`, holding).then(
       (success) => {
         dispatch(getHoldings())

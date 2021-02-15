@@ -26,6 +26,12 @@ const holdingSchema = new Schema({
         required: false,
         unique: false,
         trim: true
+    },
+    isCrypto: {
+        type: Boolean,
+        required: true,
+        unique: false,
+        trim: true
     }
 }, {
     timestamps: true

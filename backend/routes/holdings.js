@@ -1,8 +1,31 @@
 require('dotenv').config()
 
+const rp = require('request-promise');
+
+
+const fetchCoinmarketCap = (ticker) => {
+  const requestOptions = {
+    method: 'GET',
+    uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest',
+    qs: {
+      //'id': '1',
+        'convert': 'USD',
+        'symbol': ticker
+    },
+    headers: {
+      'X-CMC_PRO_API_KEY': process.env.COINMARKET_API_KEY
+    },
+    json: true,
+    gzip: true
+  };
+
+  return requestOptions
+}
+
 const router = require('express').Router();
 const fetch = require("node-fetch");
 let Holding = require('../models/holding.model');
+const { response } = require('express');
 const apiKey = process.env.API_KEY;
 
 const o_date = new Intl.DateTimeFormat;
@@ -43,7 +66,9 @@ router.route('/add').post((req, res) => {
   const holdingName = req.body.holdingName;
   const costBasis = req.body.costBasis;
   const amount = req.body.amount;
-  const newHolding = new Holding({holdingName, costBasis, amount});
+  const isCrypto = req.body.isCrypto || false;
+
+  const newHolding = new Holding({"holdingName": holdingName, "costBasis": costBasis, "amount": amount, "isCrypto": isCrypto});
 
   newHolding.save()
   .then(() => res.json('Holding added!'))
@@ -52,11 +77,26 @@ router.route('/add').post((req, res) => {
 
 //get stonk data
 //https://levelup.gitconnected.com/stocks-api-tutorial-with-javascript-40f24320128c
-router.route('/holdingPrices/:ticker').get(async (req, res) => {
-  const ticker = req.params.ticker
+router.route('/holdingPrices/:ticker').post(async (req, res) => {
+  const ticker = req.body.ticker
+  const isCrypto = req.body.isCrypto || false
+
+  if(isCrypto){
+    rp(fetchCoinmarketCap(ticker)).then(response => {
+      console.log('API call response:', response);
+      res.json({
+        data: response
+      })
+    }).catch((err) => {
+      console.log('API call error:', err.message);
+      res.status(400).json('Error: ' + err)
+    });
+  }
 
   const request = await fetch(
-    `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${ticker}&outputsize=compact&apikey=${process.env.API_KEY}`
+    `https://www.alphavantage.co/query?function=`+
+    `TIME_SERIES_DAILY_ADJUSTED&symbol=${req.params.ticker}` +
+    `&outputsize=compact&apikey=${process.env.ALPHA_ADVANTAGE_API_KEY}`
   );
 
   res.json({

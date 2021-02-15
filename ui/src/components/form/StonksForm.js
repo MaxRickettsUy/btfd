@@ -9,6 +9,7 @@ const Basic = ({addHolding,setOpen}) => (
       holdingName: 'BTC',
       costBasis: 0,
       amount: 0,
+      isCrypto: false
     }}
     onSubmit={async (values) => {
       addHolding(values)
@@ -24,13 +25,22 @@ const Basic = ({addHolding,setOpen}) => (
                 <Grid.Column width={4}>
                   <label htmlFor="holdingName">Holding Name</label>
                 </Grid.Column>
-                <Grid.Column width={12}>
+                <Grid.Column width={6}>
                   <Field
-                    style={{width: '50%'}}
                     id="holdingName" 
                     name="holdingName" 
                     placeholder="AAPL" 
                   />
+                </Grid.Column>
+                <Grid.Column width={6}>
+                <label>
+                  <Field 
+                    style={{marginRight: 10}}
+                    type="checkbox"
+                    name="isCrypto"
+                  />
+                  Check for cryptocurrency
+                </label>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -41,7 +51,6 @@ const Basic = ({addHolding,setOpen}) => (
                 </Grid.Column>
                 <Grid.Column width={12}>
                   <Field 
-                    style={{width: '50%'}}
                     id="costBasis" 
                     name="costBasis" 
                     placeholder="0" 
@@ -56,7 +65,6 @@ const Basic = ({addHolding,setOpen}) => (
                 </Grid.Column>
                 <Grid.Column width={12}>
                   <Field
-                    style={{width: '50%'}}
                     id="amount"
                     name="amount"
                     placeholder="0"
@@ -66,8 +74,8 @@ const Basic = ({addHolding,setOpen}) => (
             </Grid>
             <Grid columns={1}>
               <Grid.Row>
-                <Grid.Column>
-                  <button style={{width: '50%'}} type="submit">Submit</button>
+                <Grid.Column width={16}>
+                  <button style={{width: '100%'}} type="submit">Submit</button>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
