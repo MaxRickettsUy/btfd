@@ -2,7 +2,6 @@ require('dotenv').config()
 
 const rp = require('request-promise');
 
-
 const fetchCoinmarketCap = (ticker) => {
   const requestOptions = {
     method: 'GET',
@@ -24,14 +23,7 @@ const fetchCoinmarketCap = (ticker) => {
 
 const router = require('express').Router();
 const fetch = require("node-fetch");
-let Holding = require('../models/holding.model');
-const { response } = require('express');
-const apiKey = process.env.API_KEY;
-
-const o_date = new Intl.DateTimeFormat;
-const f_date = (m_ca, m_it) => Object({...m_ca, [m_it.type]: m_it.value});
-const m_date = o_date.formatToParts().reduce(f_date, {});
-const today = m_date.year + '-' + m_date.month + '-' + m_date.day;
+const Holding = require('../models/holding.model');
 
 //fetch all holdings
 router.route('/').get((req, res) => {
