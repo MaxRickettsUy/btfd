@@ -21,7 +21,7 @@ const normalizeCryptoData = (cryptoData, ticker) => {
 
 export const getHoldings = () => {
   return (dispatch) => {
-    return axios.get(`holdings/`).then(
+    return axios.get(`/holdings/`).then(
       (success) => {
         dispatch(createGetSuccess('GET_HOLDINGS', success.data))
       }
@@ -33,7 +33,7 @@ export const getHoldings = () => {
 
 export const addHolding = (values) => {
   return (dispatch) => {
-    return axios.post(`holdings/add`, values).then(
+    return axios.post(`/holdings/add`, values).then(
       (success) => {
         dispatch(getHoldings())
       }
@@ -45,7 +45,7 @@ export const addHolding = (values) => {
 
 export const getPrices = ({id, ticker, holding}) => {
   return (dispatch) => {
-    return axios.post(`holdings/holdingPrices/` + ticker, {"ticker": ticker, "isCrypto": holding.isCrypto}).then(
+    return axios.post(`/holdings/holdingPrices/` + ticker, {"ticker": ticker, "isCrypto": holding.isCrypto}).then(
       (success) => {
         if(holding.isCrypto){
           holding.price = normalizeCryptoData(success.data, ticker)
@@ -62,7 +62,7 @@ export const getPrices = ({id, ticker, holding}) => {
 
 export const updateHolding = (id, holding) => {
   return dispatch => {
-    return axios.put(`holdings/update/${id}`, holding).then(
+    return axios.put(`/holdings/update/${id}`, holding).then(
       (success) => {
         dispatch(getHoldings())
       }

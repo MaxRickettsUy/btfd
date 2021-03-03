@@ -3,10 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "start-client": "cd ui && npm start",
-        "build": "(cd ui && npm install && npm build) && (cd backend && npm install)",
-        "test": "cd ui && npm test",
-        "eject": "cd ui && npm eject",
-        "start": "cd ui && npm start"
+        "start": "cd backend && npm install && npm start",
+        "heroku-postbuild": "cd ui && (npm install && npm run build)"
     }
 }

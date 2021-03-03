@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path')
 const mongoose = require('mongoose');
 
 require('dotenv').config(); 
@@ -11,6 +12,12 @@ const mongoInstance = process.env.MONGO_ATLAS || 'mongodb://localhost/stonks' ||
 
 app.use(cors());
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, '../ui/build')))
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../ui/build'))
+})
 
 mongoose.connect(mongoInstance, {
 	useNewUrlParser: true, 

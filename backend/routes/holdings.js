@@ -12,7 +12,7 @@ const fetchCoinmarketCap = (ticker) => {
         'symbol': ticker
     },
     headers: {
-      'X-CMC_PRO_API_KEY': process.env.COINMARKET_API_KEY
+      'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_API_KEY
     },
     json: true,
     gzip: true
@@ -75,7 +75,6 @@ router.route('/holdingPrices/:ticker').post(async (req, res) => {
 
   if(isCrypto){
     rp(fetchCoinmarketCap(ticker)).then(response => {
-      console.log('API call response:', response);
       res.json({
         data: response
       })
