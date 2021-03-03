@@ -1,0 +1,12 @@
+{
+    "name": "btfd",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start-client": "cd ui && react-scripts start",
+        "build": "(cd ui && react-scripts build) && (cd backend && npm install)",
+        "test": "cd ui && react-scripts test",
+        "eject": "cd ui && react-scripts eject",
+        "start": "cd ui && npm start"
+    }
+}
