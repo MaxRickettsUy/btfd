@@ -12,11 +12,6 @@ const mongoInstance = process.env.MONGO_ATLAS || 'mongodb://localhost/stonks' ||
 app.use(cors());
 app.use(express.json());
 
-//const uri = process.env.ATLAS_URI;
-//const uri = process.env.MONGODB_URI;
-
-// mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
-
 mongoose.connect(mongoInstance, {
 	useNewUrlParser: true, 
 	useCreateIndex: true, 
