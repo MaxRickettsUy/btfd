@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "start-client": "cd ui && npm start",
-        "build": "(cd ui && npm build) && (cd backend && npm install)",
+        "build": "(cd ui && npm install && npm build) && (cd backend && npm install)",
         "test": "cd ui && npm test",
         "eject": "cd ui && npm eject",
         "start": "cd ui && npm start"
