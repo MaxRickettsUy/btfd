@@ -1,13 +1,10 @@
 .env
-package-lock.json
 node_modules
 
 ui/.env
 ui/.eslintcache
 ui/node_modules
 ui/yarn-lock.json
-ui/package-lock.json
 
 backend/.env
 backend/node_modules
-backend/package-lock.json
