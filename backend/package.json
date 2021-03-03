@@ -13,5 +13,8 @@
     "request-promise": "^4.2.6",
     "unirest": "^0.6.0"
   },
+  "scripts": {
+    "start": "node server.js"
+  },
   "devDependencies": {}
 }

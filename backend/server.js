@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-const mongoInstance = 'mongodb://localhost/stonks' || 'mongo://btfd-mongo/stonks'
+const mongoInstance = process.env.MONGO_ATLAS || 'mongodb://localhost/stonks' || 'mongo://btfd-mongo/stonks'
 
 app.use(cors());
 app.use(express.json());
