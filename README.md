@@ -13,7 +13,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Install [Docker](https://docs.docker.com/engine/install/)
 ### Install [Docker Compose](https://docs.docker.com/compose/install/)
 
-Claim API Key from [Alpha Advantage](https://www.alphavantage.co/support/#api-key) and set `API_KEY` in `backend/.env`
+Claim API Key from [Alpha Advantage](https://www.alphavantage.co/support/#api-key) and set `ALPHA_ADVANTAGE_API_KEY` in `backend/.env`
+<br/>
+Claim API Key from [CoinMarketCap](https://coinmarketcap.com/api/) and set `COIN_MARKET_CAP_API_KEY` in `backend/.env`
 
 ## To start application in browser with docker-compose
 
