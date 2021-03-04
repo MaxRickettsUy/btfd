@@ -24,14 +24,15 @@ Claim API Key from [CoinMarketCap](https://coinmarketcap.com/api/) and set `COIN
 #### `docker-compose up`
 #### Open in browser at `localhost:8000`
 
-## To start application as Electron application or brower with npm
+## To start application as Electron application or browers with npm
 
 ### From `/backend`
 #### `npm install`
-#### `node /backend/server.js`
+#### `npm start` or `node server.js`
 
 ### From `/ui`
 #### `npm install`
-#### `npm run start:electron`
+#### `npm run start:electron` (start as Electron app)
+#### `npm run start` (start in browser at http://localhost:3000)
 
 ## Same Available Scripts from Create React App
