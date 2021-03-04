@@ -3,9 +3,7 @@ import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import HoldingsTable from '../components/HoldingsTable'
 import StonksBarChart from '../components/StonksBarChart'
-import StonksChart from '../components/StonksChart'
 import * as holdingsActions from '../actions/holdings'
-<StonksChart />
 
 class StonksContainer extends React.Component {
 
