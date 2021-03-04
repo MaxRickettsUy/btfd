@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux'
-import configureStore from './store'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -12,9 +10,7 @@ styleLink.href = "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css
 document.head.appendChild(styleLink);
 
 ReactDOM.render(
-  <Provider store={configureStore()}>
-    <App />
-  </Provider>,
+  <App />,
   document.getElementById('root')
 );
 

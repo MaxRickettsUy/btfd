@@ -2,7 +2,9 @@
   <a alt="btfd" target="_blank"><img width=300 height=300 src="ui/public/btfd1.png"/></a>
 </p>
 
-# BTFD
+
+
+# BTFD ![Node.js CI](https://github.com/MaxRickettsUy/btfd/actions/workflows/node.js.yml/badge.svg)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [React Electron](https://github.com/MaxRickettsUy/react-electron).
 

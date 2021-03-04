@@ -31,4 +31,4 @@ jobs:
     
     - run: npm --prefix backend ci
     - run: npm --prefix backend run build --if-present
-    - run: npm --prefix backend test    
+    - run: npm --prefix backend test --if-present
