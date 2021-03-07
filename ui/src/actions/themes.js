@@ -11,7 +11,6 @@ export const initializeTheme = () => {
 }
 
 export const toggleTheme = (themeString) => {
-  console.log(themeString)
   return (dispatch) => {
     localStorage.setItem("btfd_theme", themeString)
     dispatch(createGetSuccess('TOGGLE_THEME', getTheme(themeString)))

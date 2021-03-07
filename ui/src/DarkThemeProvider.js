@@ -12,7 +12,6 @@ class DarkThemeProvider extends React.Component {
   }
 
   render(){
-    console.log(this.props.theme)
     return (
       <ThemeProvider theme={this.props.theme}>
         <>
