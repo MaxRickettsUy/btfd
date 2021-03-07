@@ -1,6 +1,6 @@
-import { Button, Icon, Menu, Table } from 'semantic-ui-react'
 import React from 'react'
 import StonksModal from './StonksModal'
+import { Button, Icon, Menu, Table } from 'semantic-ui-react'
 
 const needsUpdate = (holding) => {
   const today = new Date().toISOString();
@@ -76,7 +76,7 @@ const TableRow = (holding, prices, index, getPrices, updateHolding) => {
 const HoldingsTable = ({addHolding, holdings, prices, getPrices, updateHolding}) => {
   return (
     <React.Fragment>
-      <Table striped style={{height: '80vh', overflowX: 'scroll'}}>
+      <Table striped style={{overflowX: 'scroll'}}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Ticker</Table.HeaderCell>

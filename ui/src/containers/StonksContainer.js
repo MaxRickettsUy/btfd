@@ -1,9 +1,10 @@
+import * as holdingsActions from '../actions/holdings'
+import * as themesActions from '../actions/themes'
 import {connect} from 'react-redux'
-import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import HoldingsTable from '../components/HoldingsTable'
+import React from 'react'
 import StonksBarChart from '../components/StonksBarChart'
-import * as holdingsActions from '../actions/holdings'
 
 class StonksContainer extends React.Component {
 
@@ -14,10 +15,10 @@ class StonksContainer extends React.Component {
   render(){
     const holdings = this.props.holdings || null
     return (
-      <div style={{background: 'black', height: '100vh', margin: 10, overflowY: 'scroll', overflowX: 'hidden'}}>
-        <Grid columns={2} divided>
-          <Grid.Row>
-            <Grid.Column width={9}>
+      <React.Fragment>
+        <Grid columns="equal">
+          <Grid.Row style={{margin: 10}}>
+            <Grid.Column>
               {
                 holdings ? 
                   <StonksBarChart holdings={this.props.holdings}/>
@@ -25,7 +26,7 @@ class StonksContainer extends React.Component {
                   null
               }
             </Grid.Column>
-            <Grid.Column width={7}>
+            <Grid.Column>
                 <HoldingsTable 
                   addHolding={this.props.addHolding} 
                   holdings={this.props.holdings}
@@ -36,7 +37,7 @@ class StonksContainer extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-      </div>
+      </React.Fragment>
     )
   }
 }
@@ -46,7 +47,8 @@ export default connect(
     return {
       holding: state.holdings.holding,
       holdings: state.holdings.holdings,
-      prices: state.holdings.prices
+      prices: state.holdings.prices,
+      theme: state.themes.theme
     }
   },
   (dispatch) => {
@@ -54,7 +56,10 @@ export default connect(
       addHolding: (values) => dispatch(holdingsActions.addHolding(values)),
       getHoldings: () => dispatch(holdingsActions.getHoldings()),
       getPrices: (ticker) => dispatch(holdingsActions.getPrices(ticker)),
-      updateHolding: (id, holding) => dispatch(holdingsActions.updateHolding(id, holding))
+      updateHolding: (id, holding) => dispatch(holdingsActions.updateHolding(id, holding)),
+      // getTheme: () => dispatch(themesActions.getTheme()),
+      initializeTheme: () => dispatch(themesActions.initializeTheme()),
+      toggleTheme: (theme) => dispatch(themesActions.toggleTheme(theme))
     }
   }
 )(StonksContainer)
