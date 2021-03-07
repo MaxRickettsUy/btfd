@@ -8,7 +8,19 @@ const logger = createLogger()
 
 let middleware = [];
 
-let initialState = {themes: {theme: darkTheme}, holdings: {holdings: null}}
+let initialState = {
+  auth: {
+    authenticated: false,
+    authStatus: {},
+    user: null
+  },
+  themes: {
+    theme: darkTheme
+  },
+  holdings: {
+    holdings: null
+  }
+}
 
 if (process.env.NODE_ENV === 'development') {
   middleware = [...middleware, thunk, logger];
