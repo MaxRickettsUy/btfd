@@ -63,8 +63,8 @@ const TableRow = (holding, prices, index, getPrices, updateHolding) => {
           <Table.Cell>{holding.costBasis}</Table.Cell>
           <Table.Cell>{holding.amount}</Table.Cell>
           <Table.Cell>{value}</Table.Cell>
-          <Table.Cell 
-            style={{color: totalReturn < 0 ? 'red' : 'green'}} 
+          <Table.Cell
+            style={{color: totalReturn < 0 ? 'red' : 'green'}}
             textAlign='center'
           >
             {totalReturn ? totalReturn : 0}
@@ -88,7 +88,7 @@ const HoldingsTable = ({addHolding, holdings, prices, getPrices, updateHolding})
           </Table.Row>
         </Table.Header>
         {
-          holdings ? 
+          holdings ?
             <Table.Body>
               {
                 holdings.map((holding, index) => {
@@ -123,7 +123,7 @@ const HoldingsTable = ({addHolding, holdings, prices, getPrices, updateHolding})
           </Table.Row>
         </Table.Footer>
       </Table>
-    </React.Fragment>    
+    </React.Fragment>
   )
 }
 

@@ -31,6 +31,6 @@ export const createGetSuccess = (actionType, data) => {
 
   return {
     type: actionType,
-    payload: actionData    
+    payload: actionData
   }
 }

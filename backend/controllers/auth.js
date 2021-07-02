@@ -48,7 +48,7 @@ const authController = {
   // adding new user (sign-up route)
   register (req,res) {
     const newuser = new User(req.body);
-    
+
     // if ( newuser.password != newuser.password2 ){
     //   return res.status(400).json({message: "password not match"});
     // }
@@ -58,7 +58,7 @@ const authController = {
         return res.status(400).send({
           message : "Username exists!"
         });
-      } 
+      }
 
       newuser.save((err, doc) => {
         if (err) {
@@ -91,7 +91,7 @@ const authController = {
       }
       return res.status(400).end()
     }
-    
+
     res.json({'username': payload.username})
   }
 }

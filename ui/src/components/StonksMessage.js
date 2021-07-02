@@ -3,9 +3,9 @@ import { Message } from 'semantic-ui-react'
 
 const StonksMessage = ({header, content}) => {
   return (
-   <Message 
+   <Message
     positive={header === 'SUCCESS' ? true : false}
-    negative={header === 'FAILURE' ? true : false} 
+    negative={header === 'FAILURE' ? true : false}
     size='massive'
   >
      <Message.Header>{header}</Message.Header>

@@ -14,7 +14,7 @@ const holdingsReducer = (state = {}, action) => {
         ...state,
         holding: action.payload
       }
-    case 'GET_PRICES': 
+    case 'GET_PRICES':
       return {
         ...state,
         prices: action.payload

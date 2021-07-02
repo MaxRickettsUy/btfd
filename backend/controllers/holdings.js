@@ -11,9 +11,9 @@ const holdingsController = {
     const costBasis = req.body.costBasis;
     const amount = req.body.amount;
     const isCrypto = req.body.isCrypto || false;
-  
+
     const newHolding = new Holding({"holdingName": holdingName, "costBasis": costBasis, "amount": amount, "isCrypto": isCrypto});
-  
+
     newHolding.save()
     .then(() => res.json('Holding added!'))
     .catch(error => res.status(400).json('Error: '+ error));
@@ -27,7 +27,7 @@ const holdingsController = {
     const _id = req.params.id;
     const _holding = req.body;
     const query = {'_id': _id};
-  
+
     Holding.findOneAndUpdate(query, _holding, {upsert: true}, (error, document) => {
       if (error) {
         return res.send(500, {'error': error})

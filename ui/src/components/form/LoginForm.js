@@ -7,13 +7,13 @@ import StonksMessage from '../StonksMessage'
 
 const UserNameInput = ({ field, form: { touched, errors }, ...props}) => {
   return (
-    <Form.Input 
-      {...field} 
-      {...props}      
-      fluid 
-      icon='user' 
+    <Form.Input
+      {...field}
+      {...props}
+      fluid
+      icon='user'
       iconPosition='left'
-      style={{marginBottom: 10, width: '100%'}} 
+      style={{marginBottom: 10, width: '100%'}}
     />
   )
 }
@@ -21,13 +21,13 @@ const UserNameInput = ({ field, form: { touched, errors }, ...props}) => {
 const PasswordInput = ({ field, form: { touched, errors }, ...props}) => {
   return (
     <Form.Input
-      {...field} 
-      {...props}      
+      {...field}
+      {...props}
       fluid
       icon='lock'
       iconPosition='left'
       type='password'
-      style={{marginBottom: 10, width: '100%'}} 
+      style={{marginBottom: 10, width: '100%'}}
     />
   )
 }
@@ -65,7 +65,7 @@ const LoginForm = ({messageHidden, header, content, login, register, renderMessa
       >
         <FormikForm>
           <Segment>
-            <FormikField 
+            <FormikField
               id='username'
               name='username'
               placeholder="Username"
@@ -77,11 +77,11 @@ const LoginForm = ({messageHidden, header, content, login, register, renderMessa
               placeholder="Password"
               component={PasswordInput}
             />
-            <Button 
+            <Button
               style={{marginBottom: 10}}
               type='submit'
               color='teal'
-              fluid 
+              fluid
             >
               {primaryButtonText}
             </Button>

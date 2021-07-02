@@ -27,14 +27,14 @@ const Basic = ({addHolding,setOpen}) => (
                 </Grid.Column>
                 <Grid.Column width={6}>
                   <Field
-                    id="holdingName" 
-                    name="holdingName" 
-                    placeholder="AAPL" 
+                    id="holdingName"
+                    name="holdingName"
+                    placeholder="AAPL"
                   />
                 </Grid.Column>
                 <Grid.Column width={6}>
                 <label>
-                  <Field 
+                  <Field
                     style={{marginRight: 10}}
                     type="checkbox"
                     name="isCrypto"
@@ -50,10 +50,10 @@ const Basic = ({addHolding,setOpen}) => (
                   <label htmlFor="costBasis">Cost Basis</label>
                 </Grid.Column>
                 <Grid.Column width={12}>
-                  <Field 
-                    id="costBasis" 
-                    name="costBasis" 
-                    placeholder="0" 
+                  <Field
+                    id="costBasis"
+                    name="costBasis"
+                    placeholder="0"
                   />
                 </Grid.Column>
               </Grid.Row>

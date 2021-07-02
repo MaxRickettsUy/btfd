@@ -20,15 +20,15 @@ class StonksContainer extends React.Component {
           <Grid.Row style={{margin: 10}}>
             <Grid.Column>
               {
-                holdings ? 
+                holdings ?
                   <StonksBarChart holdings={this.props.holdings}/>
                   :
                   null
               }
             </Grid.Column>
             <Grid.Column>
-                <HoldingsTable 
-                  addHolding={this.props.addHolding} 
+                <HoldingsTable
+                  addHolding={this.props.addHolding}
                   holdings={this.props.holdings}
                   prices={this.props.prices}
                   getPrices={this.props.getPrices}

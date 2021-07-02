@@ -5,7 +5,7 @@ const themesReducer = (state = {}, action) => {
         ...state,
         theme: action.payload
       }
-    case 'TOGGLE_THEME': 
+    case 'TOGGLE_THEME':
       return {
         ...state,
         theme: action.payload

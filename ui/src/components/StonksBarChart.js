@@ -39,7 +39,7 @@ class StonksBarChart extends React.Component {
         theme={VictoryTheme.material}
         domainPadding={30}
         padding={{top: 50, bottom: 50, left: 70, right: 70}}
-        containerComponent={<VictoryContainer style={{height: '80vh'}} responsive={true}/>}        
+        containerComponent={<VictoryContainer style={{height: '80vh'}} responsive={true}/>}
       >
         <VictoryAxis
           tickValues={[1,2,3,4,5]}

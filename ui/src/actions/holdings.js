@@ -73,13 +73,13 @@ export const updateHolding = (id, holding) => {
 export const createGetSuccess = (actionType, data) => {
   let actionData = {};
   switch(actionType){
-    case 'ADD_HOLDING': 
+    case 'ADD_HOLDING':
       actionData = data;
       break;
     case 'UPDATE_PRICE':
       actionData = data;
       break;
-    case 'GET_HOLDINGS': 
+    case 'GET_HOLDINGS':
       actionData = data;
       break;
     case 'GET_HOLDING':

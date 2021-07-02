@@ -34,8 +34,8 @@ export default class StonksMenu extends Component {
             onClick={this.handleItemClick}
             position='right'
           >
-              <Toggle 
-                theme={this.props.theme} 
+              <Toggle
+                theme={this.props.theme}
                 toggleTheme={this.props.toggleTheme}
               />
               <Button onClick={this.props.logout}>
