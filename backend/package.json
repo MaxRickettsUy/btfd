@@ -18,6 +18,9 @@
     "request-promise": "^4.2.6",
     "unirest": "^0.6.0"
   },
+  "devDependencies": {
+    "normalize-url": ">=4.5.1"
+  },
   "scripts": {
     "start": "node server.js"
   }
