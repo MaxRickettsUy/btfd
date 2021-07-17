@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import { Grid } from 'semantic-ui-react'
 import HoldingsTable from '../components/HoldingsTable'
 import React from 'react'
+import Rechart from '../components/Rechart'
 import StonksBarChart from '../components/StonksBarChart'
 
 class StonksContainer extends React.Component {
@@ -21,19 +22,21 @@ class StonksContainer extends React.Component {
             <Grid.Column>
               {
                 holdings ?
-                  <StonksBarChart holdings={this.props.holdings}/>
+                  <Rechart holdings={this.props.holdings}/>
                   :
                   null
               }
             </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
             <Grid.Column>
-                <HoldingsTable
-                  addHolding={this.props.addHolding}
-                  holdings={this.props.holdings}
-                  prices={this.props.prices}
-                  getPrices={this.props.getPrices}
-                  updateHolding={this.props.updateHolding}
-                />
+              <HoldingsTable
+                addHolding={this.props.addHolding}
+                holdings={this.props.holdings}
+                prices={this.props.prices}
+                getPrices={this.props.getPrices}
+                updateHolding={this.props.updateHolding}
+              />
             </Grid.Column>
           </Grid.Row>
         </Grid>
